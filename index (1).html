@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>حاسبة الساعات التطوعية</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(160deg, #2e1a47, #0b0b1c);
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 28px;
+      color: #00ffff;
+      margin-bottom: 20px;
+    }
+    input {
+      padding: 10px;
+      margin: 10px 0;
+      width: 100%;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    button {
+      padding: 12px;
+      background-color: #00ffff;
+      border: none;
+      border-radius: 6px;
+      color: #000;
+      font-weight: bold;
+      width: 100%;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #fff;
+    }
+    .signature {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>حاسبة الساعات التطوعية</h1>
+    <input type="number" id="days" placeholder="عدد الأيام" />
+    <input type="number" id="hoursPerDay" placeholder="عدد الساعات في اليوم" />
+    <button onclick="calculateHours()">احسب</button>
+    <div class="result" id="result"></div>
+    <div class="signature">تصميم: سعيد العسيري</div>
+  </div>
+
+  <script>
+    function calculateHours() {
+      const days = parseFloat(document.getElementById('days').value);
+      const hours = parseFloat(document.getElementById('hoursPerDay').value);
+      if (!isNaN(days) && !isNaN(hours)) {
+        const total = days * hours;
+        document.getElementById('result').innerText = `إجمالي الساعات: ${total} ساعة`;
+      } else {
+        document.getElementById('result').innerText = 'الرجاء إدخال أرقام صحيحة';
+      }
+    }
+  </script>
+</body>
+</html>
